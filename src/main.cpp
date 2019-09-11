@@ -1,5 +1,7 @@
+// Copyright 2019
+
 #include <iostream>
-#include "core.h"
+#include "core.h" //NOLINT
 
 int main(int argc, char** argv) {
   int val = add(1, 3);
