@@ -1,8 +1,4 @@
-# C++ Boilerplate
-
-[![Build Status](https://travis-ci.org/vaalentin/cpp-boilerplate.svg?branch=master)](https://travis-ci.org/vaalentin/cpp-boilerplate)
-
-Simple C++11 project boilerplate, using [Google Test](https://github.com/google/googletest/) and [Travis CI](https://travis-ci.org/).
+# Camera calibration using C++
 
 ## Requirements
 
