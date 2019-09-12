@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 # Call cmake with -D TESTS=ON to set this flag to true.
 option(TESTS "build tests" OFF)
 
-project(sample_project CXX C)
+project(camera_calibration CXX C)
 
 # Core and main are split. This allows us to link core to main and tests.
 
@@ -15,9 +15,13 @@ add_library(core
 add_executable(main
   ./src/main.cpp)
 
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+
 # Link core to main.
 target_link_libraries(main
-  core)
+  core
+  ${OpenCV_LIBS})
 
 # Add flags.
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
