@@ -1,5 +1,5 @@
 - repo: https://gitlab.com/daverona-env/pre-commit-cpp
-  rev: 0.6.0          # use the most recent version
+  rev: 0.6.0 
   hooks:
   - id: cpplint       # linter (or style-error checker) for Google C++ Style Guide
     exclude: CMakeFiles
