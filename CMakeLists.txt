@@ -9,19 +9,25 @@ project(camera_calibration CXX C)
 
 # Core library. *.cpp should be added here.
 add_library(core
-  ./src/core.cpp)
+  ./src/core.cpp
+  ./src/get_initial_calib.h)
 
 # Main entry point.
 add_executable(main
   ./src/main.cpp)
 
 find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_INCLUDE_DIRS} )
+find_package( Boost REQUIRED COMPONENTS system filesystem)
+
+include_directories( ${OpenCV_INCLUDE_DIRS} $ENV{EIGEN3_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
+
+link_directories(${Boost_LIBRARY_DIRS})
 
 # Link core to main.
 target_link_libraries(main
   core
-  ${OpenCV_LIBS})
+  ${OpenCV_LIBS}
+  ${Boost_LIBRARIES})
 
 # Add flags.
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
