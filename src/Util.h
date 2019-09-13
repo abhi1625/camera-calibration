@@ -3,12 +3,16 @@
 
 #ifndef SRC_UTIL_H_
 #define SRC_UTIL_H_
+#endif  // SRC_UTIL_H_
 
-#include <opencv/highgui.h>
 #include <glob.h>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include <boost/filesystem.hpp>
+
 
 using namespace boost::filesystem; //NOLINT
 
@@ -27,8 +31,18 @@ std::vector<std::string> get_images_path(std::string images_path) {
     return path_string;
 }
 
-cv::Mat read_image(std::string path) {
+cv::Mat read_image(std::string path, bool show_image = false) {
+    cv::Mat image;
+    cv::imread(path, CV_LOAD_IMAGE_COLOR);
+    if (!image.data) {
+        std::cout << "Could not read image" << std::endl;
+    }
+    if (show_image) {
+        cv::namedWindow("Debug display", CV_WINDOW_AUTOSIZE);
+        cv::imshow("Debug display", image);
+        cv::waitKey(0);
+    }
+    return image;
 }
 
-#endif  // SRC_UTIL_H_
 
