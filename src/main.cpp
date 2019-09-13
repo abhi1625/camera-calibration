@@ -10,4 +10,7 @@ int main() {
   for (uint16_t i = 0; i < paths.size(); i++) {
     std::cout << paths[i] << "\n";
   }
+  std::cout << "the image is " << paths[0] <<"\n";
+  cv::Mat board_image = read_image(paths[0]);
+  get_corners(board_image, cv::Size(9, 6), true);
 }

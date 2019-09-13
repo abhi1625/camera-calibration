@@ -27,8 +27,14 @@ std::vector<cv::Point2f> get_corners(cv::Mat board_image,
             cv::TermCriteria(CV_TERMCRIT_EPS + CV_TERMCRIT_ITER, 30, 0.1));
             cv::drawChessboardCorners(board_image, pattern_size,
                                 cv::Mat(corners), pattern_bool);
+            cv::namedWindow("Corners window", CV_WINDOW_NORMAL);
+            cv::resizeWindow("Corners window", 800, 600);
+            cv::imshow("Corners window", board_image);
+            cv::waitKey(0);
         }
         return corners;
     }
 }
+
+
 

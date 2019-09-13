@@ -33,7 +33,7 @@ std::vector<std::string> get_images_path(std::string images_path) {
 
 cv::Mat read_image(std::string path, bool show_image = false) {
     cv::Mat image;
-    cv::imread(path, CV_LOAD_IMAGE_COLOR);
+    image = cv::imread(path);
     if (!image.data) {
         std::cout << "Could not read image" << std::endl;
     }
@@ -44,5 +44,4 @@ cv::Mat read_image(std::string path, bool show_image = false) {
     }
     return image;
 }
-
 
