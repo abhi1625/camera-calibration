@@ -34,6 +34,8 @@ std::vector<cv::Point2f> get_corners(cv::Mat board_image,
         }
         return corners;
     }
+    std::cout << "WARNING: Corner pattern recognition failed" << std::endl;
+    return corners;
 }
 
 
