@@ -37,6 +37,5 @@ std::vector<cv::Point2f> get_corners(cv::Mat board_image,
     std::cout << "WARNING: Corner pattern recognition failed" << std::endl;
     return corners;
 }
-
-
-
+// Estimate Homography from the given image
+// cv::Mat get_homographies(cv::)

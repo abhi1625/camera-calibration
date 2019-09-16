@@ -16,7 +16,7 @@
 
 using namespace boost::filesystem; //NOLINT
 
-// TO DO : Allow relative oaths
+// TO DO : Allow relative paths
 
 std::vector<std::string> get_images_path(std::string images_path) {
     std::vector<std::string> path_string;

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/kartikmadhira/github/camera-calibration/src/Util.h
+/home/abhinav/Gits/camera-calibration/src/Util.h
 glob.h
 -
 string
@@ -22,7 +22,7 @@ opencv2/highgui/highgui.hpp
 boost/filesystem.hpp
 -
 
-/home/kartikmadhira/github/camera-calibration/src/get_initial_calib.h
+/home/abhinav/Gits/camera-calibration/src/get_initial_calib.h
 eigen3/Eigen/Dense
 -
 vector
@@ -32,13 +32,13 @@ opencv2/core/core.hpp
 opencv2/highgui/highgui.hpp
 -
 
-/home/kartikmadhira/github/camera-calibration/src/main.cpp
+/home/abhinav/Gits/camera-calibration/src/main.cpp
 opencv2/opencv.hpp
 -
 get_initial_calib.h
-/home/kartikmadhira/github/camera-calibration/src/get_initial_calib.h
+/home/abhinav/Gits/camera-calibration/src/get_initial_calib.h
 Util.h
-/home/kartikmadhira/github/camera-calibration/src/Util.h
+/home/abhinav/Gits/camera-calibration/src/Util.h
 
 /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv/cxcore.h
 opencv2/core/core_c.h

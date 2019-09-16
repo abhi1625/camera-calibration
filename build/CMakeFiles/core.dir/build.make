@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kartikmadhira/github/camera-calibration
+CMAKE_SOURCE_DIR = /home/abhinav/Gits/camera-calibration
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kartikmadhira/github/camera-calibration/build
+CMAKE_BINARY_DIR = /home/abhinav/Gits/camera-calibration/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/core.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/core.dir/flags.make
 
 CMakeFiles/core.dir/src/core.cpp.o: CMakeFiles/core.dir/flags.make
 CMakeFiles/core.dir/src/core.cpp.o: ../src/core.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kartikmadhira/github/camera-calibration/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/core.dir/src/core.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/src/core.cpp.o -c /home/kartikmadhira/github/camera-calibration/src/core.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/abhinav/Gits/camera-calibration/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/core.dir/src/core.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/src/core.cpp.o -c /home/abhinav/Gits/camera-calibration/src/core.cpp
 
 CMakeFiles/core.dir/src/core.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/core.dir/src/core.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kartikmadhira/github/camera-calibration/src/core.cpp > CMakeFiles/core.dir/src/core.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/abhinav/Gits/camera-calibration/src/core.cpp > CMakeFiles/core.dir/src/core.cpp.i
 
 CMakeFiles/core.dir/src/core.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/src/core.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kartikmadhira/github/camera-calibration/src/core.cpp -o CMakeFiles/core.dir/src/core.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/abhinav/Gits/camera-calibration/src/core.cpp -o CMakeFiles/core.dir/src/core.cpp.s
 
 CMakeFiles/core.dir/src/core.cpp.o.requires:
 
@@ -91,7 +91,7 @@ core_EXTERNAL_OBJECTS =
 libcore.a: CMakeFiles/core.dir/src/core.cpp.o
 libcore.a: CMakeFiles/core.dir/build.make
 libcore.a: CMakeFiles/core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kartikmadhira/github/camera-calibration/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcore.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/abhinav/Gits/camera-calibration/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcore.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/core.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core.dir/link.txt --verbose=$(VERBOSE)
 
@@ -109,6 +109,6 @@ CMakeFiles/core.dir/clean:
 .PHONY : CMakeFiles/core.dir/clean
 
 CMakeFiles/core.dir/depend:
-	cd /home/kartikmadhira/github/camera-calibration/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kartikmadhira/github/camera-calibration /home/kartikmadhira/github/camera-calibration /home/kartikmadhira/github/camera-calibration/build /home/kartikmadhira/github/camera-calibration/build /home/kartikmadhira/github/camera-calibration/build/CMakeFiles/core.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/abhinav/Gits/camera-calibration/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/abhinav/Gits/camera-calibration /home/abhinav/Gits/camera-calibration /home/abhinav/Gits/camera-calibration/build /home/abhinav/Gits/camera-calibration/build /home/abhinav/Gits/camera-calibration/build/CMakeFiles/core.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/core.dir/depend
 

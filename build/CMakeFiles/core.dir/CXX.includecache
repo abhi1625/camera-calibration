@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/kartikmadhira/github/camera-calibration/src/core.cpp
+/home/abhinav/Gits/camera-calibration/src/core.cpp
 tuple
 -
 core.h
-/home/kartikmadhira/github/camera-calibration/src/core.h
+/home/abhinav/Gits/camera-calibration/src/core.h
 
-/home/kartikmadhira/github/camera-calibration/src/core.h
+/home/abhinav/Gits/camera-calibration/src/core.h
 tuple
 -
 
