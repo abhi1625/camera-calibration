@@ -1,4 +1,0 @@
-/home/kartikmadhira/github/camera-calibration/build/CMakeFiles/rebuild_cache.dir
-/home/kartikmadhira/github/camera-calibration/build/CMakeFiles/edit_cache.dir
-/home/kartikmadhira/github/camera-calibration/build/CMakeFiles/main.dir
-/home/kartikmadhira/github/camera-calibration/build/CMakeFiles/core.dir
