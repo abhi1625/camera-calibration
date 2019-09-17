@@ -1,7 +1,9 @@
 # Camera calibration using C++
 
 ## Requirements
-
+- `boost` version `1.58` or higher. 
+- `OpenCV` 
+- `Eigen` version `3.2.92` or higher.
 - `git`
 - `cmake` version `2.8` or higher.
 - `gcc` or `clang` that supports `std=c++11`.
