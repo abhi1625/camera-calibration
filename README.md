@@ -1,5 +1,8 @@
 # Camera calibration using C++
 
+## Contributors:
+[Kartik Madhira](www.github.com/kartikmadhira1), [Abhinav Modi](www.github.com/abhi1625)
+
 ## Requirements
 - `boost` version `1.58` or higher. 
 - `OpenCV` 
@@ -28,42 +31,6 @@ $ git submodule update --init --recursive
 
 ## Usage
 
-- `src` is where your code goes.
-
-When you add a new file, don't forget to update `CMakeLists.txt` and execute `cmake` again.
-
-```
-add_library(core
-	# add your *.cpp here
-	)
-```
-
-- `test` is where your tests go.
-
-Same as `src`, when you add a new file, you have to update `CMakeLists.txt` and execute `cmake` again.
-
-```
-add_executables(tests
-	./tests/main-test.cpp
-	# add your *-test.cpp here
-	)
-```
-
-- `third-party` hosts the third party libraries.
-
-They don't necessarily have to be submodules. You probably have to `add_subdirectory` and `include_directories` in `CMakeLists.txt`.
-
-- `build` is where the `cmake` generated files and the executables will be.
-
-From this folder:
-
-```
-- make # build
-- ./main # execute project
-- ./tests # execute tests
-```
-
-If you wan't to build from scratch again, you can just delete the folder and start again.
 
 ## License
 
