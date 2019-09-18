@@ -7,14 +7,13 @@ project(camera_calibration CXX C)
 
 # Core and main are split. This allows us to link core to main and tests.
 
-# Core library. *.cpp should be added here.
-add_library(core
-  ./src/core.cpp
-  ./src/get_initial_calib.h)
 
 # Main entry point.
 add_executable(main
-  ./src/main.cpp)
+  ./src/main.cpp
+  ./src/get_initial_calib.hpp
+  ./src/get_initial_calib.cpp
+)
 
 find_package( OpenCV REQUIRED )
 find_package( Boost REQUIRED COMPONENTS system filesystem)
@@ -25,7 +24,6 @@ link_directories(${Boost_LIBRARY_DIRS})
 
 # Link core to main.
 target_link_libraries(main
-  core
   ${OpenCV_LIBS}
   ${Boost_LIBRARIES})
 
@@ -53,7 +51,6 @@ if(TESTS)
   target_link_libraries(tests
     pthread
     gtest
-    gtest_main
-    core)
+    gtest_main)
 
 endif()

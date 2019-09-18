@@ -5,6 +5,7 @@
 #define SRC_UTIL_H_
 #endif  // SRC_UTIL_H_
 
+#include <eigen3/Eigen/Dense>
 #include <glob.h>
 #include <string>
 #include <vector>
@@ -12,11 +13,15 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <boost/filesystem.hpp>
-
+#include <opencv2/core/eigen.hpp>
+#include <opencv2/calib3d/calib3d.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 using namespace boost::filesystem; //NOLINT
 
-// TO DO : Allow relative paths
+// std::vector<std::string> get_images_path(std::string images_path);
+// cv::Mat read_image(std::string path, bool show_image = false);
+// cv::Mat get_homography(MatrixXf world_corners, MatrixXf image_corners);
 
 std::vector<std::string> get_images_path(std::string images_path) {
     std::vector<std::string> path_string;
@@ -44,4 +49,3 @@ cv::Mat read_image(std::string path, bool show_image = false) {
     }
     return image;
 }
-
