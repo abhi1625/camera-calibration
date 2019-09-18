@@ -45,6 +45,7 @@ cv::Mat get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
     // In order to conver cv::Point2f data to cv::Mat use reshape
     cv::Mat corner_matrix = cv::Mat(corner_vector).reshape(1);
     // Always use copyTo for safe conversions
+    // https://stackoverflow.com/questions/24991307/opencv-vectorpoint3f-to-3-column-mat
     corner_matrix.row(0).copyTo(image_points.row(0));
     corner_matrix.row(pattern_size.height-1).copyTo(image_points.row(1));
     corner_matrix.row(total_indices-1).copyTo(image_points.row(2));
