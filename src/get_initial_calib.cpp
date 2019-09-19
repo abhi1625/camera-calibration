@@ -64,3 +64,6 @@ cv::Mat get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
     cv::Mat H = get_homography(world_points, image_points);
     return H;
 }
+
+cv::Mat get_initial_K(cv::Mat homography) {
+}

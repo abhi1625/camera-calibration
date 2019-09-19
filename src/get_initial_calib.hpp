@@ -26,3 +26,5 @@ cv::Mat get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
                         cv::Size pattern_size);
 
 cv::Mat get_homography(cv::Mat world_corners, cv::Mat image_corners);
+
+cv::Mat get_initial_K(cv::Mat homography);

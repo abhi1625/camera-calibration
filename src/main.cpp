@@ -4,7 +4,7 @@
 
 int main() {
   std::vector<std::string> paths = get_images_path(
-    "/home/kartikmadhira/github/camera-calibration/checkerboard_images");
+    "../checkerboard_images");
   for (uint16_t i = 0; i < paths.size(); i++) {
     std::cout << paths[i] << "\n";
   }
