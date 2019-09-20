@@ -93,3 +93,6 @@ MatrixXf get_vij_matrix(cv::Mat H, int i, int j) {
             H.at<float>(2, i)*H.at<float>(2, j);
     return vij;
 }
+
+cv::Mat get_initial_K(cv::Mat homography) {
+}

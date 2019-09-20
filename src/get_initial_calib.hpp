@@ -27,6 +27,10 @@ MatrixXf get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
 
 cv::Mat get_homography(cv::Mat world_corners, cv::Mat image_corners);
 
+<<<<<<< HEAD
 MatrixXf& create_V_matrix(cv::Mat H);
 
 MatrixXf get_vij_matrix(cv::Mat H, int i, int j);
+=======
+cv::Mat get_initial_K(cv::Mat homography);
+>>>>>>> 3424f093aae65cc37b653580af68279e270272e2
