@@ -35,7 +35,7 @@ cv::Mat get_homography(cv::Mat _world_corners, cv::Mat _image_corners) {
     return H;
 }
 
-cv::Mat get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
+MatrixXf get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
                         cv::Size pattern_size) {
     // Get the total indices in the pattern size
     int total_indices = pattern_size.height * pattern_size.width;
@@ -59,8 +59,37 @@ cv::Mat get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
                     square_size*pattern_size.width,
                     square_size, square_size*pattern_size.width;
 
-    cv::eigen2cv(_world_points, world_points);
-    cout << world_points << "\n";
     cv::Mat H = get_homography(world_points, image_points);
-    return H;
+    // MatrixXf V = create_V_matrix(H);
+    MatrixXf V = create_V_matrix(H);
+    return V;
+}
+
+MatrixXf& create_V_matrix(cv::Mat H) {
+    // Gather V matrix
+    cout << "its here";
+
+    MatrixXf v11 = get_vij_matrix(H, 0, 0);
+    MatrixXf v12 = get_vij_matrix(H, 0, 1);
+    MatrixXf v22 = get_vij_matrix(H, 1, 1);
+    MatrixXf V;
+    V << v12.transpose(),
+        (v11-v12).transpose();
+    MatrixXf V;
+    return V;
+}
+
+MatrixXf get_vij_matrix(cv::Mat H, int i, int j) {
+    // Create v matrix at i and j
+    MatrixXf vij;
+    vij <<  H.at<float>(0, i)*H.at<float>(0, j),
+            H.at<float>(0, 1)*H.at<float>(1, j) +
+            H.at<float>(1, i)*H.at<float>(0, j),
+            H.at<float>(1, i)*H.at<float>(1, j),
+            H.at<float>(2, i)*H.at<float>(0, j) +
+            H.at<float>(0, i)*H.at<float>(2, j),
+            H.at<float>(2, i)*H.at<float>(1, j) +
+            H.at<float>(1, i)*H.at<float>(2, j),
+            H.at<float>(2, i)*H.at<float>(2, j);
+    return vij;
 }

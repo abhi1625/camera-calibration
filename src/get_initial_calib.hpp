@@ -22,7 +22,11 @@ vector<cv::Point2f> get_corners(cv::Mat board_image,
                                     cv::Size pattern_size,
                                     bool show_corners);
 
-cv::Mat get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
+MatrixXf get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
                         cv::Size pattern_size);
 
 cv::Mat get_homography(cv::Mat world_corners, cv::Mat image_corners);
+
+MatrixXf& create_V_matrix(cv::Mat H);
+
+MatrixXf get_vij_matrix(cv::Mat H, int i, int j);
