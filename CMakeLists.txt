@@ -18,7 +18,7 @@ add_executable(main
 find_package( OpenCV REQUIRED )
 find_package( Boost REQUIRED COMPONENTS system filesystem)
 
-include_directories( ${OpenCV_INCLUDE_DIRS} $ENV{EIGEN3_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
+include_directories( ${OpenCV_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 
 link_directories(${Boost_LIBRARY_DIRS})
 

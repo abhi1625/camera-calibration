@@ -5,11 +5,11 @@
 #define SRC_UTIL_H_
 #endif  // SRC_UTIL_H_
 
-#include <eigen3/Eigen/Dense>
 #include <glob.h>
 #include <string>
 #include <vector>
 #include <iostream>
+#include "Eigen/Dense"
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <boost/filesystem.hpp>

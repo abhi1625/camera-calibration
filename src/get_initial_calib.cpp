@@ -59,39 +59,48 @@ MatrixXf get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
                     square_size*pattern_size.width,
                     square_size, square_size*pattern_size.width;
 
+    cv::eigen2cv(_world_points, world_points);
+
     cv::Mat H = get_homography(world_points, image_points);
+    if (H.empty()) {
+        cout << "WARNING: H matrix is empty!\n";
+    }
     // MatrixXf V = create_V_matrix(H);
-    MatrixXf V = create_V_matrix(H);
+    MatrixXf V;
+    V.resize(12, 2);
+    V = create_V_matrix(H);
     return V;
 }
 
-MatrixXf& create_V_matrix(cv::Mat H) {
+MatrixXf create_V_matrix(const cv::Mat& H) {
     // Gather V matrix
-    cout << "its here";
 
-    MatrixXf v11 = get_vij_matrix(H, 0, 0);
-    MatrixXf v12 = get_vij_matrix(H, 0, 1);
-    MatrixXf v22 = get_vij_matrix(H, 1, 1);
-    MatrixXf V;
-    V << v12.transpose(),
-        (v11-v12).transpose();
-    MatrixXf V;
+    MatrixXf v11(1, 6);
+    get_vij_matrix(v11, H, 0, 0);
+    MatrixXf v12(1, 6);
+    get_vij_matrix(v12, H, 0, 1);
+    MatrixXf v22(1, 6);
+    get_vij_matrix(v22 , H, 1, 1);
+    MatrixXf V(2, 6);
+    cout << H << "\n";
+    V << v12,
+        (v11-v12);
     return V;
 }
 
-MatrixXf get_vij_matrix(cv::Mat H, int i, int j) {
-    // Create v matrix at i and j
-    MatrixXf vij;
-    vij <<  H.at<float>(0, i)*H.at<float>(0, j),
-            H.at<float>(0, 1)*H.at<float>(1, j) +
-            H.at<float>(1, i)*H.at<float>(0, j),
-            H.at<float>(1, i)*H.at<float>(1, j),
-            H.at<float>(2, i)*H.at<float>(0, j) +
-            H.at<float>(0, i)*H.at<float>(2, j),
-            H.at<float>(2, i)*H.at<float>(1, j) +
-            H.at<float>(1, i)*H.at<float>(2, j),
-            H.at<float>(2, i)*H.at<float>(2, j);
-    return vij;
+void get_vij_matrix(MatrixXf& vij, const cv::Mat& H, int i, int j) { //NOLINT
+    // vij << H.at<float>(0,0);
+    // cout << "value here is!!!!!" << H.at<float>(0,1);
+    cout << H.at<float>(i, 0)*H.at<float>(j, 0) << "---------\n";
+    vij <<  H.at<float>(i, 0)*H.at<float>(j, 0),
+            H.at<float>(i, 0)*H.at<float>(j, 1) +
+            H.at<float>(i, 1)*H.at<float>(j, 0),
+            H.at<float>(i, 1)*H.at<float>(j, 1),
+            H.at<float>(i, 2)*H.at<float>(j, 0) +
+            H.at<float>(i, 0)*H.at<float>(j, 2),
+            H.at<float>(i, 2)*H.at<float>(j, 1) +
+            H.at<float>(i, 1)*H.at<float>(j, 2),
+            H.at<float>(i, 2)*H.at<float>(j, 2);
 }
 
 cv::Mat get_initial_K(cv::Mat homography) {

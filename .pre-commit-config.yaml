@@ -3,4 +3,4 @@
   hooks:
   - id: cpplint       # linter (or style-error checker) for Google C++ Style Guide
     exclude: CMakeFiles
-
+    exclude: src/Eigen
