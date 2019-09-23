@@ -74,7 +74,6 @@ MatrixXf get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
 
 MatrixXf create_V_matrix(const cv::Mat& H) {
     // Gather V matrix
-
     MatrixXf v11(1, 6);
     get_vij_matrix(v11, H, 0, 0);
     MatrixXf v12(1, 6);
@@ -82,26 +81,23 @@ MatrixXf create_V_matrix(const cv::Mat& H) {
     MatrixXf v22(1, 6);
     get_vij_matrix(v22 , H, 1, 1);
     MatrixXf V(2, 6);
-    cout << H << "\n";
     V << v12,
         (v11-v12);
     return V;
 }
 
 void get_vij_matrix(MatrixXf& vij, const cv::Mat& H, int i, int j) { //NOLINT
-    // vij << H.at<float>(0,0);
-    // cout << "value here is!!!!!" << H.at<float>(0,1);
-    cout << H.at<float>(i, 0)*H.at<float>(j, 0) << "---------\n";
-    vij <<  H.at<float>(i, 0)*H.at<float>(j, 0),
-            H.at<float>(i, 0)*H.at<float>(j, 1) +
-            H.at<float>(i, 1)*H.at<float>(j, 0),
-            H.at<float>(i, 1)*H.at<float>(j, 1),
-            H.at<float>(i, 2)*H.at<float>(j, 0) +
-            H.at<float>(i, 0)*H.at<float>(j, 2),
-            H.at<float>(i, 2)*H.at<float>(j, 1) +
-            H.at<float>(i, 1)*H.at<float>(j, 2),
-            H.at<float>(i, 2)*H.at<float>(j, 2);
+    // findHomography returns data of type double, not float!
+    vij <<  H.at<double>(i, 0)*H.at<double>(j, 0),
+            H.at<double>(i, 0)*H.at<double>(j, 1) +
+            H.at<double>(i, 1)*H.at<double>(j, 0),
+            H.at<double>(i, 1)*H.at<double>(j, 1),
+            H.at<double>(i, 2)*H.at<double>(j, 0) +
+            H.at<double>(i, 0)*H.at<double>(j, 2),
+            H.at<double>(i, 2)*H.at<double>(j, 1) +
+            H.at<double>(i, 1)*H.at<double>(j, 2),
+            H.at<double>(i, 2)*H.at<double>(j, 2);
 }
 
-cv::Mat get_initial_K(cv::Mat homography) {
-}
+// cv::Mat get_initial_K(cv::Mat homography) {
+// }
