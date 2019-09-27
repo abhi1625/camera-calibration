@@ -11,6 +11,6 @@
 #include "../src/Util.h"
 #include "../src/get_initial_calib.hpp"
 
-TEST(get_images, should_be_more_than_2) {
+TEST(get_images, greater_than_2) {
   EXPECT_GT(get_images_path("../checkerboard_images").size() , 2);
 }  // should pass
