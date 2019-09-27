@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
 # Call cmake with -D TESTS=ON to set this flag to true.
-option(TESTS "build tests" OFF)
+option(TESTS "build tests" ON)
 
 project(camera_calibration CXX C)
 
@@ -11,7 +11,6 @@ project(camera_calibration CXX C)
 # Main entry point.
 add_executable(main
   ./src/main.cpp
-  ./src/get_initial_calib.hpp
   ./src/get_initial_calib.cpp
 )
 
@@ -47,7 +46,7 @@ if(TESTS)
     ./test/function-test.cpp
     ./test/class-test.cpp)
 
-  # Link core, pthread and gtest to tests.
+  # Link core, pthrea   `d and gtest to tests.
   target_link_libraries(tests
     pthread
     gtest
