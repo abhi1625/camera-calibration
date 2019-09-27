@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
 # Call cmake with -D TESTS=ON to set this flag to true.
-option(TESTS "build tests" ON)
+option(TESTS "build tests" OFF)
 
 project(camera_calibration CXX C)
 
