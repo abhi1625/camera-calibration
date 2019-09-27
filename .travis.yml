@@ -35,3 +35,6 @@ addons:
       - gcc-5
       - g++-5
       - clang-3.7
+
+after_success:
+  - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
