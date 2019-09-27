@@ -1,4 +1,12 @@
-// Copyright 2019
+/**@file get_initial_calib.cpp
+ * @brief Source file for get_initial_calib.hpp. 
+ *        Contains definitions for functions declared in the included .hpp file
+ *
+ * Detailed description follows here.
+ * @author     : Abhinav Modi, Kartik Madhira
+ * 
+ * Copyright 2019 MIT License
+ */
 
 #include "get_initial_calib.hpp"
 

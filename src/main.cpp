@@ -1,4 +1,12 @@
-// Copyright 2019
+/**@file main.cpp
+ * @brief Main file for camera-calibration 
+ *
+ * Detailed description follows here.
+ * @author     : Abhinav Modi, Kartik Madhira
+ * 
+ * Copyright 2019 MIT License
+ */
+
 #include "get_initial_calib.hpp" //NOLINT
 #include "Util.h"
 

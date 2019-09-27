@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/abhi1625/camera-calibration.svg?branch=master)](https://travis-ci.org/abhi1625/camera-calibration)
+
 # Camera calibration using C++
 
 ## Contributors:

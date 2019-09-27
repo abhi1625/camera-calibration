@@ -1,9 +1,14 @@
-// Copyright 2019
-// Standard utilities header file
+/**@file Util.hpp
+ * @brief Standard utilities header file
+ * 
+ * Detailed description follows here.
+ * @author     : Abhinav Modi, Kartik Madhira
+ * 
+ * Copyright 2019 MIT License
+ */
 
 #ifndef SRC_UTIL_H_
 #define SRC_UTIL_H_
-#endif  // SRC_UTIL_H_
 
 #include <glob.h>
 #include <string>
@@ -49,3 +54,5 @@ cv::Mat read_image(std::string path, bool show_image = false) {
     }
     return image;
 }
+
+#endif  // SRC_UTIL_H_
