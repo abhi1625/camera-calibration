@@ -40,16 +40,26 @@ if(TESTS)
   include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
   include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR})
 
+  find_package( OpenCV REQUIRED )
+  find_package( Boost REQUIRED COMPONENTS system filesystem)
+
+  include_directories( ${OpenCV_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+
+  link_directories(${Boost_LIBRARY_DIRS})
+
   # Tests. *-test.cpp should be added here.
   add_executable(tests
     ./test/main-test.cpp
     ./test/function-test.cpp
-    ./test/class-test.cpp)
-
-  # Link core, pthrea   `d and gtest to tests.
+    ./src/get_initial_calib.cpp
+    ./src/Util.h)
+  # Link core, pthread and gtest to tests.
   target_link_libraries(tests
     pthread
     gtest
-    gtest_main)
+    gtest_main
+    ${OpenCV_LIBS}
+    ${Boost_LIBRARIES})
+
 
 endif()
