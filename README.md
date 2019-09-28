@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/abhi1625/camera-calibration.svg?branch=master)](https://travis-ci.org/abhi1625/camera-calibration)
-
+[![Coverage Status](https://coveralls.io/repos/github/abhi1625/camera-calibration/badge.svg?branch=master)](https://coveralls.io/github/abhi1625/camera-calibration?branch=master)
 # Camera calibration using C++
 
 ## Contributors:
