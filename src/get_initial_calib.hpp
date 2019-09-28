@@ -70,3 +70,6 @@ MatrixXf create_V_matrix(const cv::Mat& H);
  * @param j   - index j for vij
  */
 void get_vij_matrix(MatrixXf& vij, const cv::Mat& H, int i, int j); //NOLINT
+
+void get_initial_K(const MatrixXf& V);
+

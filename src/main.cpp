@@ -20,6 +20,8 @@ int main() {
   // auto corners_matrix = get_corner_matrix(corners);
   auto V = get_V_matrix(corners, 21.5, cv::Size(9, 6));
   cout << V;
+
+  get_initial_K(const &V);
   // for (auto &point : corners) {
   //   std::cout << point.x << "----" << point.y << "\n";
   // }
