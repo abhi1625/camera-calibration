@@ -107,8 +107,11 @@ void get_vij_matrix(MatrixXf& vij, const cv::Mat& H, int i, int j) { //NOLINT
             H.at<double>(i, 2)*H.at<double>(j, 2);
 }
 
-void get_initial_K(const MatrixXf& V) {
-  JacobiSVD<MatrixXf> svd(V, ComputeThinU | ComputeThinV);
-  cout << "The right singular values of V are " << std::endl;
-  cout << svd.matrixV() << std::endl;
+MatrixXf get_initial_K(const MatrixXf& V) {
+  JacobiSVD<MatrixXf> svd(V, ComputeThinU | ComputeFullV);
+//   cout << "The right singular values of V are " << std::endl;
+//   cout << svd.matrixV() << std::endl;
+  MatrixXf rt_eigen_matrix(6, 6);
+  rt_eigen_matrix = svd.matrixV();
+  return rt_eigen_matrix;
 }
