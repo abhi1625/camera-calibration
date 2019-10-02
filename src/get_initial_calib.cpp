@@ -75,8 +75,9 @@ MatrixXf get_V_matrix(vector<cv::Point2f> corner_vector, float square_size,
     }
     // MatrixXf V = create_V_matrix(H);
     MatrixXf V;
-    V.resize(12, 2);
+    V.resize(2, 6);
     V = create_V_matrix(H);
+    cout << "V matrix: " << V << std::endl;
     return V;
 }
 
@@ -90,7 +91,7 @@ MatrixXf create_V_matrix(const cv::Mat& H) {
     get_vij_matrix(v22 , H, 1, 1);
     MatrixXf V(2, 6);
     V << v12,
-        (v11-v12);
+        (v11-v22);
     return V;
 }
 
@@ -108,10 +109,60 @@ void get_vij_matrix(MatrixXf& vij, const cv::Mat& H, int i, int j) { //NOLINT
 }
 
 MatrixXf get_initial_K(const MatrixXf& V) {
-  JacobiSVD<MatrixXf> svd(V, ComputeThinU | ComputeFullV);
-//   cout << "The right singular values of V are " << std::endl;
-//   cout << svd.matrixV() << std::endl;
-  MatrixXf rt_eigen_matrix(6, 6);
-  rt_eigen_matrix = svd.matrixV();
-  return rt_eigen_matrix;
+    JacobiSVD<MatrixXf> svd(V, ComputeThinU | ComputeFullV);
+    //   cout << "The right singular values of V are " << std::endl;
+    //   cout << svd.matrixV() << std::endl;
+    MatrixXf rt_eigen_matrix(6, 6);
+    rt_eigen_matrix = svd.matrixV();
+    auto B = get_B_matrix(rt_eigen_matrix);
+    auto K = compute_K(B);
+    cout << "K is " << K << std::endl;
+    return K;
+}
+
+MatrixXf get_B_matrix(const MatrixXf& rt_eigen_matrix) {
+    // extract last column of the right eigen matrix
+    VectorXf b(6);
+    b = rt_eigen_matrix.col(5);
+
+    // another way to define a (3, 3) matrix
+    Matrix3f B;
+    B << b(0), b(1), b(3),
+         b(1), b(2), b(4),
+         b(3), b(4), b(5);
+
+    return B;
+}
+
+Matrix3f compute_K(const MatrixXf& B) {
+    // initialize K matrix
+    Matrix3f K;
+
+    // calculate y coordinate of principal point
+    double v0 = (B(0, 1) * B(0, 2) - B(0, 0) * B(1, 2))
+                / (B(0, 0)*B(1, 1) - std::pow(B(0, 1), 2));
+
+    // calculate lambda
+    double lam = B(2, 2) - (std::pow(B(0, 2), 2)
+                 + v0 * (B(0, 1) * B(0, 2) - B(0, 0) * B(1, 2))) / B(0, 0);
+
+    // calculate focal length in x direction
+    double fx =  (lam / B(0, 0));
+    cout << "v0 is " << v0 << std::endl;
+
+    // calculate focal length in y direction
+    double fy = std::pow((lam *B(0, 0)/(B(0, 0) * B(1, 1) -
+                                    std::pow(B(0, 1), 2))), 0.5);
+
+    // calculate skew term gamma
+    double gamma = - B(0, 1)*std::pow(fx, 2) * fy / lam;
+
+    // calculate x coordinate of principal point
+    double u0 = (gamma * v0 / fy) - (B(0, 2) * std::pow(fx, 2) / lam);
+
+    K << fx, gamma, u0,
+          0,    fy, v0,
+          0,     0,  1;
+
+    return K;
 }

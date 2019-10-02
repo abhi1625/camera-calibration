@@ -21,8 +21,10 @@ int main() {
   auto V = get_V_matrix(corners, 21.5, cv::Size(9, 6));
   // cout << V;
 
-  auto rt_eigen_matrix = get_initial_K(V);
-  cout <<"The V matrix is " << std::endl << rt_eigen_matrix << std::endl;
+  auto K = get_initial_K(V);
+  cout <<"The K matrix is " << std::endl << K << std::endl;
+
+
   // for (auto &point : corners) {
   //   std::cout << point.x << "----" << point.y << "\n";
   // }

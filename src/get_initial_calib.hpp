@@ -73,3 +73,7 @@ void get_vij_matrix(MatrixXf& vij, const cv::Mat& H, int i, int j); //NOLINT
 
 MatrixXf get_initial_K(const MatrixXf& V);
 
+MatrixXf get_B_matrix(const MatrixXf& rt_eigen_matrix);
+
+Matrix3f compute_K(const MatrixXf& B);
+
